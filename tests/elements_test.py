@@ -1,4 +1,6 @@
 import time
+
+from pages.element_page import TextBoxPage
 from pages.base_page import BasePage
 import pytest
 from selenium import webdriver
@@ -15,6 +17,16 @@ def driver():
 
 
 def test(driver):
-    page = BasePage(driver, "http://www.google.com")
+    page = BasePage(driver, "https://www.google.com")
     page.open()
-    time.sleep(3)
+    time.sleep(5)
+
+
+class TestElement:
+    class TestTestBox:
+        def test_text_box(self, driver):
+            text_box_page = TextBoxPage(driver, 'https://demoqa.com/text-box')
+            text_box_page.open()
+            text_box_page.fill_all_fields()
+            time.sleep(5)
+ 
